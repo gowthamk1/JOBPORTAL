@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - JobSpot</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        :root {
+            --primary-color: #4a90e2;
+            --secondary-color: #2ecc71;
+            --dark-color: #2c3e50;
+            --light-color: #ecf0f1;
+            --gradient: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        }
+
+        body {
+            background: var(--light-color);
+            color: var(--dark-color);
+            min-height: 100vh;
+        }
+
+        .hero-section {
+            background: var(--gradient);
+            padding: 150px 0 100px;
+            color: white;
+            text-align: center;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+            position: relative;
+        }
+
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            clip-path: polygon(0 60%, 100% 85%, 100% 100%, 0 100%);
+        }
+
+        .hero-section h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            animation: fadeInDown 0.8s ease;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .hero-section p {
+            font-size: 1.5rem;
+            opacity: 0.9;
+            animation: fadeInUp 0.8s ease 0.2s;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        .about-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: -80px auto 60px;
+            padding: 0 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.8s ease;
+            border: 1px solid rgba(74, 144, 226, 0.1);
+        }
+
+        .card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            border-color: var(--primary-color);
+        }
+
+        .card i {
+            font-size: 3rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 25px;
+        }
+
+        .card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+
+        .content-section {
+            background: white;
+            border-radius: 25px;
+            padding: 50px;
+            margin: 60px auto;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .stats-section {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin: 50px 0;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 30px 20px;
+            background: rgba(74, 144, 226, 0.05);
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-10px);
+            background: rgba(74, 144, 226, 0.1);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            background: white;
+            margin-top: 80px;
+            box-shadow: 0 -10px 30px rgba(0,0,0,0.05);
+        }
+
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 2.8rem;
+            }
+            
+            .stats-section {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .content-section {
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero-section">
+        <div class="container">
+            <h1>About JobSpot</h1>
+            <p>Connecting Talent with Opportunity</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="about-cards">
+            <div class="card">
+                <i class="fas fa-bullseye"></i>
+                <h3>Our Mission</h3>
+                <p>To revolutionize the job search experience through innovation and dedication.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-eye"></i>
+                <h3>Our Vision</h3>
+                <p>To be the world's most trusted platform for career growth and talent acquisition.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-heart"></i>
+                <h3>Our Values</h3>
+                <p>Integrity, innovation, and commitment to excellence in everything we do.</p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>What We Offer</h2>
+            <ul>
+                <li><strong>For Job Seekers:</strong> Access to premium job listings and career resources</li>
+                <li><strong>For Employers:</strong> Advanced recruitment tools and qualified candidate pool</li>
+                <li><strong>For Both:</strong> Seamless platform experience and dedicated support</li>
+            </ul>
+
+            <div class="stats-section">
+                <div class="stat-item">
+                    <div class="stat-number">500+</div>
+                    <p>Companies</p>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">10k+</div>
+                    <p>Job Seekers</p>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">98%</div>
+                    <p>Success Rate</p>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">24/7</div>
+                    <p>Support</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 JobSpot. All rights reserved.</p>
+    </footer>
+</body>
+</html>

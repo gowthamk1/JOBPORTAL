@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JobSpot - Future of Work</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #4a90e2;
+            --secondary-color: #2ecc71;
+            --dark-color: #2c3e50;
+            --light-color: #ecf0f1;
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1a1a1a, #0a192f);
+            color: white;
+            min-height: 100vh;
+        }
+
+        .navbar {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 20px rgba(74, 144, 226, 0.3);
+            text-decoration: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            background: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(74, 144, 226, 0.4);
+        }
+
+        .register-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 100px 20px;
+            background: radial-gradient(circle at top right, rgba(74, 144, 226, 0.2), transparent),
+                        radial-gradient(circle at bottom left, rgba(46, 204, 113, 0.2), transparent);
+        }
+
+        .register-form {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            padding: 3rem;
+            border-radius: 20px;
+            width: 100%;
+            max-width: 550px;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .register-form h1 {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--glass-border);
+            border-radius: 10px;
+            color: white;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--primary-color);
+            box-shadow: 0 0 20px rgba(74, 144, 226, 0.3);
+        }
+
+        .form-group label {
+            color: white;
+            margin-bottom: 0.7rem;
+            display: block;
+        }
+
+        .register-btn {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            padding: 1.2rem;
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .register-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(74, 144, 226, 0.4);
+        }
+
+        .footer {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid var(--glass-border);
+        }
+
+        @keyframes glow {
+            0% { box-shadow: 0 0 5px rgba(74, 144, 226, 0.2); }
+            50% { box-shadow: 0 0 20px rgba(74, 144, 226, 0.4); }
+            100% { box-shadow: 0 0 5px rgba(74, 144, 226, 0.2); }
+        }
+
+        .form-group input:focus {
+            animation: glow 2s infinite;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="/">JobPortal</a>
+        </div>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/jobs">Jobs</a>
+            <a href="/login">Login</a>
+            <a href="/register">Register</a>
+        </div>
+    </nav>
+    
+    <div class="register-container">
+        <div class="register-form">
+            <h1>Create Account</h1>
+            
+            <form action="/jobseeker/register" method="post" th:object="${jobSeeker}">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" th:field="*{name}" required>
+                    <span class="error-message" th:errors="*{name}"></span>
+                </div>
+    
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" th:field="*{email}" required>
+                    <span class="error-message" th:errors="*{email}"></span>
+                </div>
+    
+                <div class="form-group">
+                    <label for="mobile">Mobile Number</label>
+                    <input type="tel" id="mobile" th:field="*{mobile}" required>
+                    <span class="error-message" th:errors="*{mobile}"></span>
+                </div>
+    
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" th:field="*{password}" required>
+                    <span class="error-message" th:errors="*{password}"></span>
+                </div>
+    
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" id="confirmPassword" th:field="*{confirmPassword}" required>
+                    <span class="error-message" th:errors="*{confirmPassword}"></span>
+                </div>
+    
+                <button type="submit" class="register-btn">Register</button>
+            </form>
+        </div>
+    </div>
+    
+    <footer class="footer">
+        <p>© 2023 JobPortal. All rights reserved.</p>
+    </footer>
+    
+    
+</body>
+</html>
